@@ -39,9 +39,14 @@ public class DBService {
 	
 	public void instantiateTestDatabase() {
 			
-			Category cat1 = new Category(null, "Electronics");
-			Category cat2 = new Category(null, "Books");
-			Category cat3 = new Category(null, "Computers");
+			Category cat1 = new Category(null, "Trefilação");
+			Category cat2 = new Category(null, "Tratamento Témico");
+			Category cat3 = new Category(null, "Tratamento Químico");
+			Category cat4 = new Category(null, "Endireitamento");
+			Category cat5 = new Category(null, "Formação de Ponta");
+			Category cat6 = new Category(null, "Inspeção de Processos");
+			Category cat7 = new Category(null, "Apontar Parada");
+			Category cat8 = new Category(null, "Inventario");
 			
 			Product p1 = new Product(null, "The Lord of the Rings", "Lorem ipsum dolor sit amet, consectetur.", 90.5, ""); 
 			Product p2 = new Product(null, "Smart TV", "Nulla eu imperdiet purus. Maecenas ante.", 2190.0, ""); 
@@ -49,7 +54,7 @@ public class DBService {
 			Product p4 = new Product(null, "PC Gamer", "Donec aliquet odio ac rhoncus cursus.", 1200.0, ""); 
 			Product p5 = new Product(null, "Rails for Dummies", "Cras fringilla convallis sem vel faucibus.", 100.99, "");
 			
-			categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
+			categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3, cat4, cat5, cat6, cat7, cat8));
 			productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
 			
 			p1.getCategories().add(cat2);
