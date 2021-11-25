@@ -46,8 +46,7 @@ public class UserService {
 	
 	public User update(Long id, User obj) {
 		try {
-			@SuppressWarnings("deprecation")
-			User entity = repository.getOne(id);
+			User entity = repository.findById(id).orElse(null);
 			updateData(entity, obj);
 			return repository.save(entity);
 		} catch (EntityNotFoundException e) {

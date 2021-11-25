@@ -19,8 +19,7 @@ public class Customizar {
 	@Query(value="InnoDB")
 	public void update(Long id, User obj) {
 		try {
-		@SuppressWarnings("deprecation")
-		User entity = repository.getOne(id);
+		User entity = repository.findById(id).orElse(null);
 		updateData(entity, obj);
 		return;
 		} catch (EntityNotFoundException e) {
