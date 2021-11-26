@@ -46,7 +46,7 @@ public class UserService {
 	
 	public User update(Long id, User obj) {
 		try {
-			User entity = repository.getOne(id);
+			User entity = repository.findById(id).orElse(null);
 			updateData(entity, obj);
 			return repository.save(entity);
 		} catch (EntityNotFoundException e) {
@@ -59,6 +59,8 @@ public class UserService {
 		entity.setName(obj.getName());
 		entity.setEmail(obj.getEmail());
 		entity.setPhone(obj.getPhone());
+		entity.setPassword(obj.getPassword());
+		entity.setFilial(obj.getFilial());
 		
 	}
 }

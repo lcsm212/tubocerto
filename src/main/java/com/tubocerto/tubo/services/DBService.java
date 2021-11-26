@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 
 import com.tubocerto.tubo.entities.Category;
 import com.tubocerto.tubo.entities.Order;
-import com.tubocerto.tubo.entities.OrderItem;
+import com.tubocerto.tubo.entities.OrderProduct;
 import com.tubocerto.tubo.entities.Payment;
 import com.tubocerto.tubo.entities.Product;
 import com.tubocerto.tubo.entities.User;
 import com.tubocerto.tubo.entities.enums.OrderStatus;
 import com.tubocerto.tubo.repositories.CategoryRepository;
-import com.tubocerto.tubo.repositories.OrderItemRepository;
+import com.tubocerto.tubo.repositories.OrderProductRepository;
 import com.tubocerto.tubo.repositories.OrderRepository;
 import com.tubocerto.tubo.repositories.ProductRepository;
 import com.tubocerto.tubo.repositories.UserRepository;
@@ -35,7 +35,7 @@ public class DBService {
 	private ProductRepository productRepository;
 	
 	@Autowired
-	private OrderItemRepository orderItemRepository;
+	private OrderProductRepository orderProductRepository;
 	
 	public void instantiateTestDatabase() {
 			
@@ -76,12 +76,12 @@ public class DBService {
 			userRepository.saveAll(Arrays.asList(u1, u2));
 			orderRepository.saveAll(Arrays.asList(o1, o2, o3));
 			
-			OrderItem oi1 = new OrderItem(o1, p1, 2, p1.getPrice()); 
-			OrderItem oi2 = new OrderItem(o1, p3, 1, p3.getPrice()); 
-			OrderItem oi3 = new OrderItem(o2, p3, 2, p3.getPrice()); 
-			OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice());
+			OrderProduct oi1 = new OrderProduct(o1, p1, 2, p1.getPrice()); 
+			OrderProduct oi2 = new OrderProduct(o1, p3, 1, p3.getPrice()); 
+			OrderProduct oi3 = new OrderProduct(o2, p3, 2, p3.getPrice()); 
+			OrderProduct oi4 = new OrderProduct(o3, p5, 2, p5.getPrice());
 			
-			orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
+			orderProductRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
 			
 			Payment pay1 = new Payment(null, Instant.parse("2019-06-20T21:53:07Z"), o1);
 			o1.setPayment(pay1);

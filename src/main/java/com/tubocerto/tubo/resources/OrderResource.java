@@ -31,4 +31,10 @@ public class OrderResource {
 		Order obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
+	
+	@GetMapping(value = "/per")
+	public ResponseEntity<List<Order>> findByIdn(Long id) {
+		List<Order> listObj = service.findIdEntre(id);
+		return ResponseEntity.ok().body(listObj);
+	}
 }
